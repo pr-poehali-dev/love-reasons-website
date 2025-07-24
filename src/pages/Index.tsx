@@ -243,4 +243,5 @@ const LoveReasonsPage = () => {
   );
 };
 
-export default LoveReasonsPage;
+const Index = () => <LoveReasonsPage />;
+export default Index;
