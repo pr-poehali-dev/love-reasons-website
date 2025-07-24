@@ -1,36 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Romantic color scheme */
+    --background: 0 0% 98%;
+    --foreground: 320 15% 25%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 320 15% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 320 15% 25%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 330 81% 60%; /* #FF69B4 - Hot pink */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 340 100% 88%; /* #FFB6C1 - Light pink */
+    --secondary-foreground: 320 15% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 340 100% 95%;
+    --muted-foreground: 320 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 350 100% 90%;
+    --accent-foreground: 320 15% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 340 50% 90%;
+    --input: 340 50% 95%;
+    --ring: 330 81% 60%;
+
+    /* Custom romantic colors */
+    --love-pink: 330 81% 60%;
+    --soft-pink: 340 100% 88%;
+    --blush: 350 100% 90%;
+    --heart-red: 0 100% 70%;
 
     --radius: 0.5rem;
 
@@ -96,6 +105,42 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-gradient-to-br from-pink-50 via-rose-50 to-pink-100 text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  .font-playfair {
+    font-family: "Playfair Display", serif;
+  }
+
+  .love-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--love-pink)),
+      hsl(var(--soft-pink))
+    );
+  }
+
+  .heart-pulse {
+    animation: heartPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes heartPulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .love-card {
+    transition: all 0.3s ease;
+  }
+
+  .love-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
   }
 }
